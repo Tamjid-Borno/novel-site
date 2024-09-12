@@ -7,4 +7,4 @@ django-environ  # For environment variables
 whitenoise  # For serving static files
 django-ckeditor  # For CKEditor
 django-cloudinary-storage>=0.3.0
-
+django-tinymce>=4.1.0
