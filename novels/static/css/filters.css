@@ -1,0 +1,138 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0b0114;
+    color: #ffffff;
+    padding: 20px;
+}
+
+/* Tag Selector Form */
+form {
+    background-color: #ffffff00!important;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;  /* Make the form full width */
+}
+
+form h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+form label {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Filtered Novels Section */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+
+ul li:hover {
+    background-color: #e9e9e9;
+}
+
+/* No Novels Found */
+p {
+    font-size: 18px;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        width: 100%;  /* Ensure form takes full width on smaller screens */
+    }
+}
+
+
+
+/* Tag Selector Container */
+.tag-selector-container {
+    background-color: #101010;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    margin: 0 auto; /* Center the container */
+}
+
+.tag-selector h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.tag-selector label {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tag-selector input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.tag-selector button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tag-selector button:hover {
+    background-color: #45a049;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+    .tag-selector-container {
+        width: 100%;
+    }
+}

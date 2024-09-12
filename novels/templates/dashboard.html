@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<body class="dashboard-body" style="background-color: #0b0114;">
+    <div class="dashboard-page">
+        <div class="dashboard-wrapper">
+            <h1>Welcome, {{ user.username }}!</h1>
+
+            <!-- User Profile Information -->
+            <div class="user-profile">
+                <div class="profile-picture">
+                    <img src="{% if user.userprofile.profile_picture %}{{ user.userprofile.profile_picture.url }}{% else %}{% static 'images/default-profile.png' %}{% endif %}" alt="{{ user.username }}'s Profile Picture">
+                </div>
+                <div class="profile-details">
+                    <p>Email: {{ user.email }}</p>
+                    <p>Member since: {{ user.date_joined|date:"F j, Y" }}</p>
+                    <p>Number of comments: {{ user.comments.count }}</p>
+                </div>
+            </div>
+
+            <!-- Profile Picture Upload Form -->
+            <div class="profile-picture-upload">
+                <h2>Update Profile Picture</h2>
+                <form method="post" enctype="multipart/form-data" action="{% url 'update_profile_picture' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+
+            <!-- Bookmarked Novels -->
+            <div class="bookmarks-section">
+                <h2>Your Bookmarked Novels</h2>
+                {% if user.bookmarks.all %}
+                    <ul class="bookmark-list">
+                        {% for bookmark in user.bookmarks.all %}
+                            <li>
+                                <a href="{% url 'novel_details' bookmark.novel.id %}">
+                                    <img src="{{ bookmark.novel.cover_image.url }}" alt="{{ bookmark.novel.title }}" class="bookmark-cover">
+                                    <div class="bookmark-info">
+                                        <h3>{{ bookmark.novel.title }}</h3>
+                                        <p>Bookmarked on: {{ bookmark.created_at|date:"F j, Y" }}</p>
+                                    </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You haven't bookmarked any novels yet.</p>
+                {% endif %}
+            </div>
+
+            <!-- Other User Data (Optional) -->
+            <div class="other-section">
+                <h2>Your Recent Comments</h2>
+                {% if user.comments.all %}
+                    <ul class="comment-list">
+                        {% for comment in user.comments.all %}
+                            <li>
+                                <a href="{% url 'novel_details' comment.novel.id %}#comment-{{ comment.id }}">
+                                    <p>{{ comment.text|truncatewords:15 }}</p>
+                                    <small>Commented on {{ comment.novel.title }} ({{ comment.created_at|date:"F j, Y" }})</small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You haven't made any comments yet.</p>
+                {% endif %}
+            </div>
+
+            <!-- Logout Button -->
+            <div class="logout-section">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button">Logout</button>
+                </form>
+            </div>
+
+            <!-- Settings Section (Optional) -->
+        </div>
+    </div>
+</body>
+{% endblock %}

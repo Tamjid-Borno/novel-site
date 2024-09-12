@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/novel_content.css' %}">
+
+    <div class="mother-container">
+        <div class="novel-content-container">
+            <h1 style="text-align: center;">
+                <a href="{% url 'novel_details' novel.id %}" style="color: #7a6ff1; text-decoration: none;">
+                    {{ novel.title }}
+                </a>
+            </h1>
+            <h2 style="text-align: center;">
+                Chapter {{ novel_content.chapter_number }} - {{ novel_content.chapter_title }}
+            </h2>
+
+            <!-- Dropdown for chapters -->
+            <div class="dropdown">
+                <button class="dropbtn">Chapters</button>
+                <div class="dropdown-content">
+                    {% for chap in novel.contents.all %}
+                        <a href="{% url 'novel_content' novel.id chap.chapter_number %}">
+                            Chapter {{ chap.chapter_number }} - {{ chap.chapter_title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Display CKEditor content -->
+            <div class="novel-content">
+                {{ novel_content.content|safe }}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdown = document.querySelector('.dropdown');
+            var dropdownButton = dropdown.querySelector('.dropbtn');
+            
+            dropdownButton.addEventListener('click', function() {
+                dropdown.classList.toggle('show');
+            });
+
+            window.addEventListener('click', function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.querySelectorAll('.dropdown.show');
+                    dropdowns.forEach(function(dropdown) {
+                        dropdown.classList.remove('show');
+                    });
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,180 @@
+.hero-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #000000, black, #000000, black, #000000) !important;
+}
+
+.hero-container .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.hero-container .hero-content {
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 70%;
+}
+
+.typing {
+    font-size: 2em;
+}
+
+#headline {
+    color: purple;
+    font-family: "MuseoModerno", sans-serif !important;
+    text-shadow: 0 0 100px rgb(128, 0, 128), 0 0 10px rgb(128, 0, 128);
+}
+
+#paragraph {
+    font-family: "Ubuntu", sans-serif !important;
+    color: white;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.section {
+    padding: 50px;
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    margin-top: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-family: "Ubuntu", sans-serif !important;
+    color: #ffffff;
+    margin: 0;
+}
+
+.view-more {
+    color: purple;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif !important;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.view-more:hover {
+    color: #d500f9; /* Lighter purple shade on hover */
+}
+
+.section-divider {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 0 auto 20px auto;
+}
+
+.novel-mother-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.novel-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); /* Adjusts to screen size */
+    gap: 30px; /* Space between columns */
+    justify-items: center;
+}
+
+.novel-item {
+    width: 10rem; /* Adjust width according to the grid */
+    height: 16rem;
+    border: 1px solid #dddddd00;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.novel-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Adjust image size within each novel-item */
+.novel-item img {
+    width: 100%;
+    height: 80%;
+    max-height: 240px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Image zoom effect on hover */
+.novel-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Ensure the text content fits well */
+.novel-item h3 {
+    margin: 2px 0 0 0;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-weight: bold;
+    position: relative;
+    display: inline-block; /* Ensures the underline is applied properly */
+    color: white;
+}
+
+/* Underline effect on hover */
+.novel-item h3::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+    margin-top: 2px; /* Space between text and underline */
+}
+
+.novel-item:hover h3::after {
+    width: 100%;
+}
+
+/* Chapter text */
+.novel-item p {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.novel-item ion-icon {
+    margin-right: 4px;
+}
+
+
+.home-body {
+    background-color: #0b0114 ;
+}
+

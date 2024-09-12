@@ -1,0 +1,100 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #110a17; /* Background color */
+    color: #fff; /* Text color */
+    font-family: "Ubuntu Mono", monospace;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
+}
+
+.auth-wrapper {
+    padding: 20px;
+    background-color: #1a0a1f;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #550126; /* Button color */
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background-color: #3d0d1b; /* Button hover color */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
+.signup-button {
+
+    background-color: #000000;
+    border: 3px solid #550126;
+}
+
+.login-button {
+    background-color: #980243;
+}
+
+.signup-button:hover {
+    background-color: #6f002f;
+}
+
+.login-button:hover {
+    background-color: #3d0d1b;
+}

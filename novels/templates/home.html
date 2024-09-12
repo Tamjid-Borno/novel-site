@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/novel_details.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/collection/components/ionicons.min.css">
+</head>
+{% block content %}
+<body class="home-body">
+    <div class="hero-container">
+        <img src="{% static 'novels/images/hagu.gif' %}" alt="Hero Image" class="hero-image">
+        <div class="hero-content">
+            <div class="typing-text">
+                <h1 id="headline" class="typing"></h1>
+            </div>
+            <p id="paragraph" class="typing"></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>New Ongoing Series</h2>
+            {% if ongoing_releases.has_next %}
+                <a href="?ongoing_page={{ ongoing_releases.next_page_number }}" class="view-more" id="view-more-button">View More</a>
+            {% endif %}
+        </div>
+        <hr class="section-divider">
+        <div class="novel-mother-container">
+            <div class="novel-list" id="novel-list">
+                {% for novel in ongoing_releases %}
+                <a href="{% url 'novel_details' novel.id %}" class="novel-link">
+                    <div class="novel-item">
+                        <img src="{{ novel.cover_image.url }}" alt="{{ novel.title }}" class="novel-cover-image">
+                        <div class="rating-box">
+                            ⭐{{ novel.rating|default:"N/A" }}
+                        </div>
+                        <h3>{{ novel.title|truncatechars:26 }}</h3>
+                        <p><ion-icon name="book"></ion-icon> {{ novel.num_chapters }} chapters</p>
+                    </div>
+                </a>
+                {% empty %}
+                    <p>No ongoing releases available at the moment.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2>Top Novels</h2>
+            {% if top_novels.has_next %}
+                <a href="?top_page={{ top_novels.next_page_number }}" class="view-more" id="view-more-button">View More</a>
+            {% endif %}
+        </div>
+        <hr class="section-divider">
+        <div class="novel-mother-container">
+            <div class="novel-list">
+                {% for novel in top_novels %}
+                <a href="{% url 'novel_details' novel.id %}" class="novel-link">
+                    <div class="novel-item">
+                        <img src="{{ novel.cover_image.url }}" alt="{{ novel.title }}" class="novel-cover-image">
+                        <div class="rating-box">
+                            ⭐{{ novel.rating|default:"N/A" }}
+                        </div>
+                        <h3>{{ novel.title }}</h3>
+                        <p><ion-icon name="book"></ionicon> {{ novel.num_chapters }} chapters</p>
+                    </div>
+                </a>
+                {% empty %}
+                    <p>No top novels available at the moment.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+{% endblock %}
+
+<script src="{% static 'js/typing.js' %}"></script>

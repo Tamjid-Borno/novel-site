@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic novels!<3</title>
+
+    <!-- Load static files -->
+    {% load static %}
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/filters.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/novel_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'path/to/ionicons.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100..900&family=Ubuntu:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        .custom-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 5rem;
+            align-self: center!important;
+            background-color: #121212;
+        }
+
+        .navbar-brand {
+            margin-right: auto;
+            margin-left: 50px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 20px;
+            height: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .nav-link {
+            margin-right: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-form {
+            display: flex;
+    justify-content: center;
+    width: 30%;
+    background-color: #00ffff00;
+    height: 30%;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: #12121200; /* Example background color */
+    border-radius: 20px;
+    overflow: hidden; /* Ensures that the button is contained within the input */
+    width: 100%;
+    max-width: 500px; /* Adjust width as needed */
+    height: 40px;
+}
+
+.search-form .search-input {
+    height: 40px;
+    width: 100%;
+    border: 2px solid #98024300; /* Example border color */
+    border-radius: 20px 0 0 20px; /* Rounded corners only on left side */
+    padding: 0 15px;
+    color: white;
+    background-color: #1a1a1a; /* Example background color */
+    outline: none;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.search-form .search-button {
+    background-color: #980243;
+    border: 3px solid  #980243; /* Match border with button */
+    border-radius: 0 20px 20px 0; /* Rounded corners only on right side */
+    padding: 0 15px;
+    margin-left: -2px; /* Align button with input border */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form .search-button:hover {
+    background-color: #000000;
+}
+
+.search-form ion-icon {
+    font-size: 20px;
+}
+
+        .user-icon-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 50px;
+            margin-left: 70px;
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #980243;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .username {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateX(-100%) translateY(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            background-color: #ffffff00;
+            color: #980243;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: underline;
+            font-size: 14px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .user-icon-container:hover .username {
+            transform: translateX(0) translateY(-50%);
+            opacity: 1;
+        }
+
+        .user-icon-container:hover .user-icon {
+            transform: translateX(-50px);
+        }
+
+        .menu-toggle {
+    display: none; /* Hide on desktop */
+    margin-bottom: 20px; /* Adjust margin to position it inside the navbar */
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .custom-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center!important;
+        padding: 0 20px;
+        width: 91%; /* Use full width for navbar */
+        height: 5rem;
+        background-color: #121212;
+    }
+
+    /* Show the menu-toggle in mobile view */
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        margin-left: auto; /* Push it to the right */
+        align-self: center!important; /* Ensure it stays inside the navbar vertically */
+        transform: translateY(-150%); /* Adjust positioning to keep it vertically centered */
+        margin-top:  auto;
+    }
+
+    .navbar-brand {
+        margin-left: 20px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Ensure the nav-links are displayed properly when toggled */
+    .menu-toggle.active + .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 8%;
+        right: 0;
+        background-color: #121212;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 1000;
+        border-color: white;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .search-form {
+        display: none;
+    }
+            .mobile-search {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                width: 100%;
+            }
+
+            .mobile-search input {
+                width: 80%;
+                height: 40px;
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            .mobile-search button {
+                height: 40px;
+                padding: 5px 10px;
+            }
+        }
+
+        /* Hide the menu toggle and mobile search on desktop */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .mobile-search {
+                display: none;
+            }
+        }
+
+        /* Mobile Styles */
+@media (max-width: 768px) {
+    .mobile-search {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .mobile-search input {
+        width: 80%;
+        height: 40px;
+        padding: 5px 15px;
+        margin-right: 10px;
+        background-color: #121212; /* Dark background color */
+        color: white; /* Text color */
+        border: 2px solid #980243; /* Purple border */
+        border-radius: 20px; /* Rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        font-size: 16px;
+        outline: none;
+    }
+
+    .mobile-search input::placeholder {
+        color: #cccccc; /* Light gray placeholder */
+    }
+
+    .mobile-search button {
+        display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000000;
+    background-color: #980243;
+    border: 3px solid #980243;
+    border-radius: 15px;
+    padding: 3px 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    }
+
+    .mobile-search button:hover {
+        background-color: #000000; /* Darker purple on hover */
+        color: #980243;
+    }
+
+    .mobile-search ion-icon {
+        font-size: 20px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="/static/novels/images/thebookclub.png" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%; margin-top: 15px;" >
+            </a>
+           
+                <form method="GET" action="/novel_list/" class="search-form">
+                    <div class="search-bar-container">
+                        <input type="text" name="q" class="form-control search-input" placeholder="Search novels..." value="">
+                        <button class="btn search-button" type="submit">
+                            <ion-icon name="search-outline" role="img" class="md hydrated"></ion-icon>
+                        </button>
+                    </div>
+                </form>                              
+          
+            
+
+            <!-- Hamburger Menu Icon -->
+            <div class="menu-toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+            <div class="nav-links">
+                <!-- Mobile Search Bar -->
+                <form method="GET" action="/novel_list/" class="mobile-search">
+                    <input type="text" name="q" class="form-control" placeholder="Search novels...">
+                    <button class="btn btn-primary" type="submit">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </form>
+                
+                <a class="nav-link" href="{% url 'filter' %}"><i class="ion ion-md-funnel"></i> Filter</a>
+                <a class="nav-link" href="{% url 'ranking' %}"><i class="ion ion-md-stats"></i> Ranking</a>
+                <a class="nav-link" href="{% url 'newest' %}"><i class="ion ion-md-calendar"></i> Newest</a>
+
+                {% if user.is_authenticated %}
+                <a href="{% url 'update_profile_picture' %}" class="user-icon-container">
+                    <div class="user-icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+                    <span class="username">{{ user.username|slice:":6" }}{% if user.username|length > 6 %}...{% endif %}</span>
+                </a>
+                {% else %}
+                <a class="nav-link btn sign-up" href="{% url 'signup' %}"><i class="ion ion-md-person-add"></i> Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    
+
+    <main>
+        {% block content %}
+        <!-- Page specific content will go here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

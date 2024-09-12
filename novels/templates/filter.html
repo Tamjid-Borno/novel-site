@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Novels Page
+{% endblock %}
+
+{% block styles %}
+    <!-- Link your filters.css file here -->
+    <link rel="stylesheet" href="{% static 'css/filters.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <!-- Content specific to the novels page -->
+        <h1>Filteration</h1>
+        
+        <!-- Mother Container for Tag Selector -->
+        <div class="tag-selector-container">
+            <form method="GET" action="{% url 'filter' %}">
+                <h3>Select Tags:</h3>
+                <div class="tag-selector">
+                    {% for tag in tags %}
+                        <label>
+                            <input type="checkbox" name="tags" value="{{ tag.id }}" {% if tag.id|stringformat:"i" in selected_tags %}checked{% endif %}>
+                            {{ tag.name }}
+                        </label>
+                    {% endfor %}
+                </div>
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        
+        <!-- Novel Display Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>New Ongoing Series</h2>
+                {% if ongoing_releases.has_next %}
+                    <a href="?ongoing_page={{ ongoing_releases.next_page_number }}" class="view-more" id="view-more-button">View More</a>
+                {% endif %}
+            </div>
+            <hr class="section-divider">
+            <div class="novel-mother-container">
+                <div class="novel-list" id="novel-list">
+                    {% for novel in filtered_novels %}
+                    <a href="{% url 'novel_details' novel.id %}" class="novel-link">
+                        <div class="novel-item">
+                            <img src="{{ novel.cover_image.url }}" alt="{{ novel.title }}" class="novel-cover-image">
+                            <div class="rating-box">
+                                ⭐{{ novel.rating|default:"N/A" }}
+                            </div>
+                            <h3>{{ novel.title|truncatechars:26 }}</h3>
+                            <p><ion-icon name="book"></ion-icon> {{ novel.num_chapters }} chapters</p>
+                        </div>
+                    </a>
+                    {% empty %}
+                        <p>No novels available with the selected tags.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </main>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Ranking Page
+{% endblock %}
+
+{% block styles %}
+    <!-- Link your ranking.css file here -->
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+       
+        <div class="section">
+            <div class="section-header">
+                <h2>Latest Releases</h2>
+            </div>
+            <hr class="section-divider">
+            <div class="novel-mother-container">
+                <div class="novel-list">
+                    {% for novel in novels %}
+                    <a href="{% url 'novel_details' novel.id %}" class="novel-link">
+                        <div class="novel-item">
+                            <img src="{{ novel.cover_image.url }}" alt="{{ novel.title }}" class="novel-cover-image">
+                            <div class="rating-box">
+                                ⭐{{ novel.rating|default:"N/A" }}
+                            </div>
+                            <h3>{{ novel.title|truncatechars:26 }}</h3>
+                            <p><ion-icon name="book"></ion-icon> {{ novel.num_chapters }} chapters</p>
+                        </div>
+                    </a>
+                    {% empty %}
+                        <p>No novels available.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </main>
+{% endblock %}
+
+
+<div class="section">
+    <div class="section-header">
+        <h2>Latest Releases</h2>
+    </div>
+    <hr class="section-divider">
+    <div class="novel-mother-container">
+        <div class="novel-list" id="novel-list">
+            {% for novel in novels %}
+            <a href="{% url 'novel_details' novel.id %}" class="novel-link">
+                <div class="novel-item">
+                    <img src="{{ novel.cover_image.url }}" alt="{{ novel.title }}" class="novel-cover-image">
+                    <div class="rating-box">
+                        ⭐{{ novel.rating|default:"N/A" }}
+                    </div>
+                    <h3>{{ novel.title|truncatechars:26 }}</h3>
+                    <p><ion-icon name="book"></ion-icon> {{ novel.num_chapters }} chapters</p>
+                </div>
+            </a>
+            {% empty %}
+                <p>No novels available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

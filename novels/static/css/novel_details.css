@@ -1,0 +1,738 @@
+.novel-details-body {
+    overflow: visible!important;
+   
+}
+
+.novel-details-page {
+    background-color: #a38cb800; /* Set the background color for the entire page */
+    height: 120vh; /* Ensure it covers the full viewport height */
+    padding: 20px; /* Add padding if needed */
+    overflow-y: auto;
+    overflow: visible;
+}
+
+/* Base styles for larger screens (default) */
+.novel-details-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: transparent;
+    color: white;
+    flex-direction: row;
+
+}
+
+.novel-image-container {
+    flex: 0 0 30%;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-left: 400px;
+    margin-right: 25px;
+}
+
+.novel-image-container img {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.novel-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.novel-details h1,
+.novel-details p {
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.novel-details-wrapper {
+    margin-top: 100px;
+    margin-bottom: 180px;
+}
+
+@media (max-width: 768px) {
+    .novel-details-container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background-color: transparent;
+        color: white;
+        flex-direction: column;
+    }
+
+
+}
+@media only screen and (max-width: 768px) {
+
+    .novel-image-container {
+
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .novel-details-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers content horizontally */
+    }
+    
+    .novel-image-container,
+    .novel-details {
+        width: 100%; /* Ensures both elements use full width */
+    }
+    
+    .novel-image-container img {
+        width: 100%; /* Makes sure the image scales to fit its container */
+        height: auto; /* Maintains the image's aspect ratio */
+    }
+    
+    .novel-info {
+        display: flex;
+        flex-direction: column; /* Stacks info items vertically */
+    }
+    
+    .info-item {
+        margin-bottom: 10px; /* Adds space between info items */
+    }
+    
+    .novel-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .novel-image-container {
+        flex: 0 0 30%;
+        height: 50vh;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+
+
+.novel-details-body {
+    background: #100020;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Glowing pink balls */
+.novel-details-body .ball-8,
+.novel-details-body .ball-7,
+.novel-details-body .ball-6,
+.novel-details-body .ball-5,
+.novel-details-body .ball-4,
+.novel-details-body::before,
+.novel-details-body::after,
+.novel-details-body .ball-3 {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(185, 43, 119, 0.301); /* Lower opacity for subtle effect */
+    box-shadow: 0 0 1000px 200px rgba(185, 43, 119, 0.301); /* Large blur radius and spread */
+    backdrop-filter: blur(70px); /* Increased blur size for glassmorphic effect */
+    z-index: -1; /* Ensure balls are behind content */
+}
+
+/* First ball */
+.novel-details-body::before {
+    width: 1px;
+    height: 1px;
+    top: 10%;
+    left: 15%;
+}
+
+/* Second ball */
+.novel-details-body::after {
+    width: 1px;
+    height: 1px;
+    bottom: 50%;
+    right: 15%;
+}
+
+/* Third ball */
+.novel-details-body .ball-3 {
+    width: 1px;
+    height: 1px;
+    top: 50%;
+    right: 40%;
+}
+
+.novel-details-body .ball-4 {
+    width: 1px;
+    height: 1px;
+    top: 20%;
+    right: 7%;
+}
+
+.novel-details-body .ball-5 {
+    width: 1px;
+    height: 1px;
+    top: 60%;
+    right: 75%;
+}
+
+.novel-details-body .ball-6 {
+    width: 1px;
+    height: 1px;
+    top: 60%;
+    right: 90%;
+}
+
+.novel-details-body .ball-7 {
+    width: 1px;
+    height: 1px;
+    top: 60%;
+    right: 50%;
+}
+
+.novel-details-body .ball-8 {
+    width: 3px;
+    height: 3px;
+    top: 30%;
+    right: 50%;
+}
+
+/* Ensure the main content is on top */
+.novel-details-wrapper {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; /* Optional: Set text color */
+}
+
+/* Add this to your CSS file */
+.novel-details {
+    color: #fff;
+}
+
+.novel-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.info-item h3 {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #ddd;
+}
+
+.info-content {
+    display: flex;
+    align-items: center;
+}
+
+.info-content i {
+    font-size: 16px; /* Adjust icon size */
+    margin-right: 5px;
+}
+
+.info-content p {
+    font-size: 14px;
+    color: #fff;
+    margin: 0; /* Remove default margin */
+}
+
+.vertical-line {
+    width: 3px;
+    height: 50px; /* Adjust height as needed */
+    background-color: #ddd;
+    margin: 0 10px;
+}
+
+.status-ongoing p {
+    color: #ff0000; /* Red for ongoing */
+}
+
+.status-completed p {
+    color: #00ff00; /* Green for completed */
+}
+
+
+.novel-buttons {
+    margin-top: 40px; /* Adjust spacing as needed */
+    display: flex; /* Align buttons horizontally */
+    gap: 50px; /* Space between buttons */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000000;
+    background-color: #980243;
+    border: 3px solid #980243;
+    border-radius: 15px;
+    padding: 3px 10px; /* Ensure sufficient padding */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+}
+
+.btnn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 3px solid #980243!important;
+}
+.bookmark-btn i {
+    font-size: 34px; /* Adjust icon size */
+    
+}
+
+/* Add this to your CSS file */
+.login-required-message {
+    color: white!important;
+}
+
+
+.btnn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Ubuntu", sans-serif;
+    color: #000000;
+    background-color: #980243;
+    border: 3px solid #980243;
+    border-radius: 15px;
+    padding: 3px 10px; /* Ensure sufficient padding */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 29px; /* Adjust font size if needed */
+}
+
+.btnn:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border: 3px solid #980243!important;
+}
+
+.novel-tags {
+    margin-top: 40px;
+}
+
+.novel-tags h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the gap between tags as needed */
+    max-width: 400px; /* Set the maximum width for the tags container */
+    margin: 0; /* Center the container */
+}
+
+.tag {
+    background-color: #550126;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: inline-block;
+    /* Ensure width is based on content */
+    min-width: auto; /* Allow tags to shrink below a specific width */
+    box-sizing: border-box;
+}
+
+
+.novel-rating {
+    margin: 0px 0;
+}
+
+
+
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+}
+
+.rating-stars i {
+    font-size: 24px; /* Adjust star size */
+    color: #e0e0e0; /* Unfilled star color */
+    margin-right: 5px;
+}
+
+.rating-stars i.filled {
+    color: #ffd700; /* Filled star color */
+}
+
+.novel-rating p {
+    margin-top: 5px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #ccc; /* Adjust the color of the border line */
+    margin: 40px 0; /* Adjust the margin as needed */
+}
+
+.novel-summary {
+    margin-top: 20px; /* Add margin for spacing */
+    padding: 20px; /* Optional padding */
+    border-top: 1px solid #ccc; /* Add a border line */
+    color:white;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.novel-summary h2 {
+    font-size: 24px; /* Adjust font size */
+    margin-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.novel-summary p {
+    font-size: 16px; /* Adjust font size */
+    line-height: 1.6; /* Improve readability */
+    font-family: "Ubuntu", sans-serif;
+}
+
+.comments-section {
+    border-top: 1px solid #ccc;
+    padding: 20px;
+}
+
+.comments-section h2 {
+    color: #fff; /* White color for the headline */
+    margin-bottom: 10px;
+}
+
+.comment-form-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Space between elements */
+    border: 1px solid #cccccc00;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1e1e1e00; /* Match your site's background color */
+    width: 40%;
+}
+
+.comment-form-input-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between logo and textarea */
+}
+
+.comment-form-logo {
+    display: flex;
+    align-items: center;
+}
+
+.comment-form-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-form-text {
+    flex-grow: 1; /* Take up remaining space */
+}
+
+#comment-input {
+    width: 250%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #33333300; /* Match your site's background color */
+    color: #fff;
+    outline: none;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ffffff; /* Underline */
+    resize: vertical; /* Allow resizing vertically */
+    min-height: 50px; /* Set a minimum height for the textarea */
+}
+
+#comment-input:focus {
+    border-bottom-color: #980243; /* Change underline color on focus */
+}
+
+.comment-form-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the end */
+    gap: 10px;
+    margin-top: 10px; /* Space between textarea and buttons */
+}
+
+.cancel-btn, .submit-btn {
+    padding: 5px 10px;
+    border: 2px solid transparent; /* Set a border to define button size */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-btn {
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* White text color */
+    border-color: #ffffff00; /* White border */
+}
+
+.submit-btn {
+    background-color: #980243; /* Button background color */
+    color: white; /* Invisible text color */
+    border-radius: 40px; /* Rounded corners */
+    border: 2px solid transparent; /* Define button size */
+}
+
+/* Optional: Add hover effects for better user experience */
+.cancel-btn:hover {
+    background-color: #f5f5f500; /* Light gray background on hover */
+}
+
+.submit-btn:hover {
+    background-color: #7d033a; /* Darker shade on hover */
+}
+
+
+.comment-list {
+    margin-top: 20px; /* Space between form and comments */
+}
+
+.comment-item {
+    color: #fff; /* White color for the comments */
+    border-bottom: 1px solid #444; /* Optional: Add a separator between comments */
+    padding: 10px 0; /* Space between comments */
+}
+
+.comment-user-info {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the flex container */
+    gap: 15px; /* Space between profile picture and comment text */
+}
+
+.comment-profile-picture {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    border-radius: 50%; /* Make the profile picture round */
+    object-fit: cover; /* Ensure the image covers the circle */
+}
+
+.comment-text {
+    display: flex;
+    flex-direction: column; /* Stack username, comment text, and icons vertically */
+    gap: 5px; /* Space between username, comment text, and icons */
+    position: relative; /* Allow positioning of report button */
+}
+
+.comment-username-date {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Space between username and date */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.comment-username {
+    font-size: 12px; /* Small font size for username */
+    margin: 0; /* Remove default margin */
+}
+
+.comment-date {
+    font-size: 12px; /* Same font size as username */
+    color: #aaa; /* Light color for the date */
+    margin: 0; /* Remove default margin */
+}
+
+.comment-content {
+    font-size: 20px; /* Larger font size for comment text */
+    margin: 0; /* Remove default margin */
+    position: relative; /* Allow positioning of report button */
+    padding-right: 40px; /* Space for the report button */
+}
+
+.report-btn {
+    position: absolute; /* Position the button within the comment-content */
+    right: 0; /* Align it to the right edge */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust alignment */
+    background: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    color: #980243; /* White color for the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.report-btn ion-icon {
+    font-size: 20px; /* Adjust icon size */
+}
+
+.comment-actions {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 0px; /* Space between comment text and icons */
+}
+
+.like-icon,
+.dislike-icon {
+    font-size: 20px; /* Adjust icon size */
+    cursor: pointer; /* Change cursor on hover */
+    color: #980243; /* White color for the icons */
+}
+
+.like-icon:hover,
+.dislike-icon:hover {
+    color: #4b0221; /* Change icon color on hover */
+}
+
+/* Styles for reply section */
+.replies {
+    margin-top: 20px;
+}
+
+/* Style each reply item */
+.reply-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Style user info section for replies */
+.reply-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.reply-profile-picture {
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.reply-text {
+    flex: 1;
+}
+
+/* Style username and date for replies */
+.reply-username-date {
+    font-size: 14px;
+    color: #555;
+}
+
+.reply-username {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Style the reply date */
+.reply-date {
+    color: #999;
+}
+
+/* Style reply content */
+.reply-content {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Add some space between replies */
+.reply-item + .reply-item {
+    margin-top: 10px;
+}
+
+/* Style for reply form container */
+.reply-form-container {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for textarea */
+.reply-form-container textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: vertical; /* Allows vertical resizing */
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Style for submit button */
+.reply-form-container button {
+    background-color: #980243; /* Match your button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reply-form-container button:hover {
+    background-color: #7a0137; /* Darker shade on hover */
+}
+
+.comment-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.report-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.report-btn ion-icon,
+.delete-btn ion-icon {
+    font-size: 1.2rem;
+    color: #d9534f;
+}
+
+.comment-content {
+    margin-bottom: 5px!important; /* Adjust the margin between the comment text and actions */
+}
+
+
+.rating-box {
+    align-self: flex-start;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: -30px; /* Moves the rating box slightly above */
+    margin-left: 1px;
+    z-index: 10;
+}
+
+.comment-profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Optional: to make the image circular */
+    object-fit: cover;  /* Ensures the image fits nicely without distortion */
+}
