@@ -27,12 +27,12 @@
     height: 50vh;
     overflow: hidden;
     border-radius: 10px;
-    margin-left: 400px;
+    margin-left: 25rem;
     margin-right: 25px;
 }
 
 .novel-image-container img {
-    width: 60%;
+    width: 25rem;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
