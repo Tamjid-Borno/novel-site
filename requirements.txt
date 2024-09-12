@@ -1,0 +1,8 @@
+Django>=4.0,<5.0
+gunicorn
+psycopg2-binary  # If you're using PostgreSQL
+djangorestframework  # If you're using Django REST framework
+Pillow  # For image processing (if you're using images)
+django-environ  # For environment variables
+whitenoise  # For serving static files
+django-ckeditor  # For CKEditor
