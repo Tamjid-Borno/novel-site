@@ -6,5 +6,5 @@ Pillow  # For image processing (if you're using images)
 django-environ  # For environment variables
 whitenoise  # For serving static files
 django-ckeditor  # For CKEditor
-cloudinary-storage
+django-cloudinary-storage>=0.3.0
 
