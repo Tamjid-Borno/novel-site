@@ -45,6 +45,8 @@
     flex-direction: column;
     justify-content: center;
     color: aliceblue;
+    position: relative;
+    left: 30%;
 }
 
 .novel-details h1,
@@ -83,9 +85,10 @@
         align-items: center; /* Centers content horizontally */
     }
     
-    .novel-image-container,
-    .novel-details {
-        width: 100%; /* Ensures both elements use full width */
+    .novel-image-container, .novel-details {
+        width: 100%;
+        position: relative;
+        left: revert-layer;
     }
     
     .novel-image-container img {
@@ -655,10 +658,10 @@
 .reply-form-container {
     margin-top: 10px;
     padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #f9f9f900;
+    border: 1px solid #dddddd00;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0%);
 }
 
 /* Style for textarea */
