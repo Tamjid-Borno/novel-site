@@ -27,8 +27,9 @@
     height: 50vh;
     overflow: hidden;
     border-radius: 10px;
-    margin-left: 25rem;
-    margin-right: 25px;
+    /* margin-left: 25rem; */
+    position: relative;
+    left: 25%;
 }
 
 .novel-image-container img {
