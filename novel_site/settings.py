@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.0.102', 'your-best-novel-site.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.0.102', 'free-novel-site.onrender.com']
 
 
 # Application definition
